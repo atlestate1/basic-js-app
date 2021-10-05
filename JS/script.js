@@ -1,5 +1,5 @@
 alert('Hello World');
 
 //defining variables//
-let favoriteFood = 'Salmon';
+const favoriteFood = 'Salmon';
 document.write(favoriteFood);
