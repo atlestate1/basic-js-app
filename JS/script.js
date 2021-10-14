@@ -11,10 +11,10 @@ const pokemonList = [
 
 //for loop to iterate over each element in array//
 
-for (const i = 0; i < pokemonList.length; i++) {
+for (let i = 0; i < pokemonList.length; i++) {
   console.log(pokemonList[i].name, pokemonList[i].height,
     pokemonList[i].types);
 //write name and height of Pokemon on screen//
   document.write(pokemonList[i].name + " is ", pokemonList[i].height +
-    " in height".);
+    " in height.");
 };
