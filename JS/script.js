@@ -16,7 +16,6 @@ for (let i = 0; i < pokemonList.length; i++) {
     pokemonList[i].types);
 //write name and height of Pokemon on screen//
   document.write(pokemonList[i].name + " is ", pokemonList[i].height +
-<<<<<<< HEAD
     " in height.", '<br>');
 };
 
@@ -28,7 +27,4 @@ for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height > 1.5)
   document.write(pokemonList[i].name + " ", pokemonList[i].height +
     " Wow, that's big!!", '<br>');
-=======
-    " in height.");
->>>>>>> 9be19eb7c3539130cf3f4486d07e3e30eb2c537a
 };
