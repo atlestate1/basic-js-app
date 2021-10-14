@@ -24,7 +24,10 @@ for (let i = 0; i < pokemonList.length; i++) {
 in for loop and attach a message stating the character is big*/
 
 for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 1.5)
+  if (pokemonList[i].height > 1.5 && pokemonList[i].height < 2.5)
   document.write(pokemonList[i].name + " ", pokemonList[i].height +
-    " Wow, that's big!!", '<br>');
+    " Wow, that's big!!", '<br>')
+  if (pokemonList[i].height > 2.5)
+  document.write(pokemonList[i].name + " ", pokemonList[i].height +
+    " Wow, that's HUGE!!", '<br>');
 };
