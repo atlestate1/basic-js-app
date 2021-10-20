@@ -1,10 +1,4 @@
-alert('Hello World');
 
-<<<<<<< Updated upstream
-//defining variables//
-const favoriteFood = 'Salmon';
-document.write(favoriteFood);
-=======
 
 //Use foreach loop instead of for loop to iterate over Pokemon List//
 
@@ -80,4 +74,3 @@ let pokemonRepository = (function () {
 
 console.log( pokemonRepository.getAll() );
 pokemonRepository.add({ name: 'Ponyta', height: 1.0, types: ['fire'] });
->>>>>>> Stashed changes
