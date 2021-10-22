@@ -50,7 +50,7 @@ const pokemonRepository = (function () {
 })();
 
 pokemonRepository.add({ name: 'Ponyta', height: 1.0, types: ['fire'] });
-pokemonList = pokemonRepository.getAll();
+const pokemonList = pokemonRepository.getAll();
 
 //Use foreach loop instead of for loop to iterate over Pokemon List//
 
