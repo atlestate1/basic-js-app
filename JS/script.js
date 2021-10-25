@@ -43,19 +43,39 @@ const pokemonRepository = (function () {
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
+
+/*Add function to call at the end in the loop function.  This function creates
+the buttons for each pokemon*/
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+
+//add listener function to create action once user clicks button//
+    button.addEventListener('click', function(event) {
+      showDetails(pokemon);
+    });
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon.name);
+  }
   return {
     getAll: getAll,
-    add: add
+    add: add,
+    addListItem: addListItem
   };
 })();
 
+console.log(pokemonRepository.getAll());
 pokemonRepository.add({ name: 'Ponyta', height: 1.0, types: ['fire'] });
-const pokemonList = pokemonRepository.getAll();
 
-//Use foreach loop instead of for loop to iterate over Pokemon List//
+console.log(pokemonRepository.getAll());
 
-function myPokemon(pokemon) {
-  document.write(pokemon.name + ' is ' + pokemon.height + ' inches tall ' +
-  'and special powers are '  + pokemon.types + '.', '<br>');
-}
-pokemonList.forEach(myPokemon);
+pokemonRepository.getAll().forEach(function(pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
