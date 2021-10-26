@@ -1,0 +1,21 @@
+/*background color = E0E0E0*/
+
+body {background-color: #E0E0E0;
+      color: black;
+      font-family: 'open sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.8;}
+
+h1   {font-size: 32px;
+      font-weight: 700;
+      text-decoration: underline;
+      text-align: center;
+      color: #eb4034;}
+
+.button-class {background-color: #eb4034;
+               font-family: inherit;
+               color: white;
+               text-align: center;
+               text-decoration: none;
+               font-size: 16px;}
