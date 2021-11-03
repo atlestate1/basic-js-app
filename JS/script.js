@@ -4,7 +4,7 @@ to that variable.*/
 
 const pokemonRepository = (function () {
   const pokemonList = [];
-  let apiUrl = 'https//pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 
   function getAll() {
@@ -78,9 +78,6 @@ the buttons for each pokemon*/
     showDetails: showDetails
   };
 })();
-
-console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Ponyta', height: 1.0, types: ['fire'] });
 
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function(pokemon) {
