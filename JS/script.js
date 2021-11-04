@@ -32,10 +32,7 @@ the buttons for each pokemon*/
     });
   }
 
-  function showDetails(pokemon) {
-    console.log(pokemon.name);
-  }
-
+  
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -65,8 +62,7 @@ the buttons for each pokemon*/
     });
   }
   function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-      console.log(item);
+  loadDetails(item).then(function () {console.log(item);
   });
 }
   return {
