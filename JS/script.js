@@ -68,7 +68,7 @@ the buttons for each pokemon*/
 
 //Code to create modal//
 let modalContainer = document.querySelector('#modal-container');
-function showModal(title, text) {
+function showModal(pokemon) {
   modalContainer.innerHTML = '';
   let modal = document.createElement('div');
   modal.classList.add('modal');
