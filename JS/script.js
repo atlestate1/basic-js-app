@@ -22,8 +22,11 @@ the buttons for each pokemon*/
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
-    button.classList.add("button-class");
+    button.classList.add("btn");
+    button.setAttribute("data-target", "#exampleModal");
+		button.setAttribute("data-toggle", "modal");
     listpokemon.appendChild(button);
+    listItem.classList.add("group-list-item");
     pokemonList.appendChild(listpokemon);
 
 //add listener function to create action once user clicks button//
@@ -136,7 +139,9 @@ modalContainer.addEventListener('click', (e) => {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails
+    showDetails: showDetails,
+    showModal: showModal,
+    hideModal: hideModal
   };
 })();
 
