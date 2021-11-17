@@ -18,21 +18,21 @@ const pokemonRepository = (function () {
 /*Add function to call at the end in the loop function.  This function creates
 the buttons for each pokemon*/
   function addListItem(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listpokemon = document.createElement("li");
-    let button = document.createElement("button");
-    button.innerText = pokemon.name;
-    button.classList.add("btn");
-    button.setAttribute("data-target", "#exampleModal");
-		button.setAttribute("data-toggle", "modal");
-    listpokemon.appendChild(button);
+    let pokemonList = document.querySelector('.list-group');
+    let listItem = document.createElement('li');
     listItem.classList.add("group-list-item");
-    pokemonList.appendChild(listpokemon);
-
-//add listener function to create action once user clicks button//
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button-class', 'btn', 'btn-primary', 'btn-lg');
+    button.setAttribute("data-target", "#exampleModal");
+		button.setAttribute('data-toggle', 'modal');
+  //add listener function to create action once user clicks button//
     button.addEventListener('click', function(event) {
       showDetails(pokemon);
     });
+
+    listItem.appendChild(button);
+    pokemonList.appendChild(listpokemon);
   }
 
   function loadList() {
@@ -70,68 +70,27 @@ the buttons for each pokemon*/
 }
 
 //Code to create modal//
-let modalContainer = document.querySelector('#modal-container');
 function showModal(pokemon) {
-  modalContainer.innerHTML = '';
-  let modal = document.createElement('div');
-  modal.classList.add('modal');
+  let modalTitle = $(".modal-title");
+  let modalBody = $(".modal-body");
+  let modalHeader = $(".modal-header");
 
-  let closeButtonElement = document.createElement('button');
-  closeButtonElement.classList.add('modal-close');
-  closeButtonElement.innerText = 'Close';
-  closeButtonElement.addEventListener('click', hideModal);
+  modalTitle.empty();
+  modalBody.empty();
 
-  let titleElement = document.createElement('h1');
-  titleElement.innerText = pokemon.name;
+  let titleElement = $("<h1>" + pokemon.name + "</h1");
+  //Create img element//
+  let imageElement = $('<img class = "modal-img" style="width:50%">')
+  imageElement.attr("src", pokemon.imageUrl);
 
-//Create img element//
-  let pokemonImg = document.createElement('img');
-  pokemonImg.src = pokemon.imageUrl;
-
-  let contentElement = document.createElement('p');
-  contentElement.innerText = ('height: ') + pokemon.height;
-
-  modal.appendChild(closeButtonElement);
-  modal.appendChild(titleElement);
-  modal.appendChild(contentElement);
-  modal.appendChild(pokemonImg);
-
-  pokemon.types.forEach(item => {
-    let contentElement = document.createElement('p');
-    contentElement.innerText = ('Type: ') + item.type.name;
-    modal.appendChild(contentElement);
-});
-
-  modalContainer.appendChild(modal);
+  let contentElement = $("<p>" + "Height : " + pokemon.height + "</p>");
 
 
-  modalContainer.classList.add('is-visible');
-}
 
+  modalTitle.append(titleElement);
+  modalBody.append(contentElement);
+  modalBody.append(imageElement);
 
-//Code to hide Modal//
-function hideModal() {
-  let modalContainer = document.querySelector('#modal-container');
-  modalContainer.classList.remove('is-visible');
-}
-
-window.addEventListener('keydown', (e) => {
-  let modalContainer = document.querySelector('#modal-container');
-  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-    hideModal();
-  }
-});
-
-/*This code listens for clicks on the container. If the target was the container
-the modal is hidden*/
-modalContainer.addEventListener('click', (e) => {
-  /* Since this is also triggered when clicking INSIDE the modal
-   We only want to close if the user clicks directly on the overlay*/
-  let target = e.target;
-  if (target === modalContainer) {
-    hideModal();
-  }
-});
 
   return {
     getAll: getAll,
@@ -140,8 +99,7 @@ modalContainer.addEventListener('click', (e) => {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-    showModal: showModal,
-    hideModal: hideModal
+    showModal: showModal
   };
 })();
 
