@@ -4,7 +4,7 @@ to that variable.*/
 
 const pokemonRepository = (function () {
   const pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
 
 
   function getAll() {
@@ -32,7 +32,7 @@ the buttons for each pokemon*/
     });
 
     listItem.appendChild(button);
-    pokemonList.appendChild(listpokemon);
+    pokemonList.appendChild(listItem);
   }
 
   function loadList() {
@@ -78,19 +78,23 @@ function showModal(pokemon) {
   modalTitle.empty();
   modalBody.empty();
 
-  let titleElement = $("<h1>" + pokemon.name + "</h1");
   //Create img element//
   let imageElement = $('<img class = "modal-img" style="width:50%">')
   imageElement.attr("src", pokemon.imageUrl);
 
-  let contentElement = $("<p>" + "Height : " + pokemon.height + "</p>");
+  let titleElement = $('<h1>' + pokemon.name + '</h1');
 
+  let contentElement = $('<p>' + "Height : " + pokemon.height + '</p>');
+
+  let powersElement = $('<p>' + "Special Powers : " + pokemon.type + '</p>')
 
 
   modalTitle.append(titleElement);
-  modalBody.append(contentElement);
   modalBody.append(imageElement);
+  modalBody.append(contentElement);
+  modalBody.append(powersElement);
 
+};
 
   return {
     getAll: getAll,
