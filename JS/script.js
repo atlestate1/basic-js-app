@@ -86,7 +86,7 @@ function showModal(pokemon) {
 
   let contentElement = $('<p>' + "Height : " + pokemon.height + '</p>');
 
-  let powersElement = $('<p>' + "Special Powers : " + pokemon.type + '</p>')
+  let powersElement = $('<p>' + "Special Powers : " + pokemon.types [""] + '</p>')
 
 
   modalTitle.append(titleElement);
