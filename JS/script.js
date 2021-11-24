@@ -74,10 +74,11 @@ function showModal(pokemon) {
   let modalTitle = $(".modal-title");
   let modalBody = $(".modal-body");
   let modalHeader = $(".modal-header");
-  let type = pokemon.types;
-    for (let i = 0; i < type.length; i++) {
-      console.log(type[i]);
-};
+  const types = pokemon.types.map((type) => {
+  console.log("type", type);
+  return type.type.name;
+});
+
   modalTitle.empty();
   modalBody.empty();
 
@@ -89,7 +90,7 @@ function showModal(pokemon) {
 
   let contentElement = $('<p>' + "Height : " + pokemon.height + '</p>');
 
-  let powersElement = $('<p>' + "Special Powers : " + type + '</p>');
+  let powersElement = $('<p>' + "Special Powers : " + types + '</p>');
 
 
   modalTitle.append(titleElement);
